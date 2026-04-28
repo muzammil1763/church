@@ -66,7 +66,7 @@ export default function GivingPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-[500px] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[500px] sm:h-[550px] md:h-[600px] flex items-center justify-center overflow-hidden">
         <Image
           src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=1920&h=500&fit=crop"
           alt="Support the Mission"
@@ -77,21 +77,21 @@ export default function GivingPage() {
         <div className="absolute inset-0 bg-navy-dark/85" />
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-gold text-sm font-semibold uppercase mb-4">SUPPORT THE MISSION</p>
-          <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
+          <p className="text-gold text-xs sm:text-sm font-semibold uppercase mb-3 sm:mb-4">SUPPORT THE MISSION</p>
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 sm:mb-6 px-4">
             Help Strengthen Churches, Serve Families, and Impact Our Community Together
           </h1>
-          <p className="text-xl text-gray-200 mb-8 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-200 mb-6 sm:mb-8 max-w-3xl mx-auto px-4">
             Every contribution helps move the mission forward.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button className="bg-gold hover:bg-gold-light text-navy-dark font-semibold px-8 py-6 text-lg">
-              <Heart className="mr-2 h-5 w-5" />
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
+            <Button className="w-full sm:w-auto bg-gold hover:bg-gold-light text-navy-dark font-semibold px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg">
+              <Heart className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
               GIVE / DONATE
             </Button>
-            <Button className="bg-transparent border-2 border-white hover:bg-white/10 text-white font-semibold px-8 py-6 text-lg">
-              <Users className="mr-2 h-5 w-5" />
+            <Button className="w-full sm:w-auto bg-transparent border-2 border-white hover:bg-white/10 text-white font-semibold px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg">
+              <Users className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
               GET INVOLVED
             </Button>
           </div>
@@ -99,12 +99,12 @@ export default function GivingPage() {
       </section>
 
       {/* Why This Matters */}
-      <section className="py-20 bg-white">
+      <section className="py-12 sm:py-16 md:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
             <div>
-              <h2 className="text-4xl font-bold text-navy-dark mb-6">Why This Matters</h2>
-              <p className="text-lg text-gray-700 mb-4">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-navy-dark mb-6 sm:mb-8">Why This Matters</h2>
+              <p className="text-base sm:text-lg text-gray-700 mb-3 sm:mb-4">
                 The Cobb Church Network exists to connect churches, share resources, and respond to real needs in our community. Your support helps make that possible—turning unity into action.
               </p>
             </div>
@@ -139,11 +139,11 @@ export default function GivingPage() {
       </section>
 
       {/* Ways You Can Support */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-12 sm:py-16 md:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-navy-dark text-center mb-16">Ways You Can Support</h2>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-navy-dark text-center mb-8 sm:mb-12 md:mb-16">Ways You Can Support</h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {supportWays.map((way, idx) => {
               const Icon = way.icon
               return (
@@ -178,15 +178,15 @@ export default function GivingPage() {
       </section>
 
       {/* Impact Stats */}
-      <section className="py-20 bg-navy-dark text-white">
+      <section className="py-12 sm:py-16 md:py-20 bg-navy-dark text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 px-4">
               Your Support Creates <span className="text-gold">Real Impact</span>
             </h2>
           </div>
           
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
             {impactStats.map((stat, idx) => (
               <div key={idx} className="text-center">
                 <div className="text-5xl font-bold text-gold mb-2">{stat.number}</div>
@@ -203,9 +203,9 @@ export default function GivingPage() {
       </section>
 
       {/* Where Your Support Goes */}
-      <section className="py-20 bg-white">
+      <section className="py-12 sm:py-16 md:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
             <div className="relative h-96 rounded-lg overflow-hidden">
               <Image
                 src="https://images.unsplash.com/photo-1438032005730-c779502df39b?w=600&h=400&fit=crop"
@@ -216,7 +216,7 @@ export default function GivingPage() {
             </div>
             
             <div>
-              <h2 className="text-4xl font-bold text-navy-dark mb-8">Where Your Support Goes</h2>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-navy-dark mb-6 sm:mb-8">Where Your Support Goes</h2>
               <div className="space-y-4">
                 {supportAreas.map((area, idx) => (
                   <div key={idx} className="flex items-start gap-3">
@@ -231,11 +231,11 @@ export default function GivingPage() {
       </section>
 
       {/* Make a Contribution */}
-      <section id="donate" className="py-20 bg-gray-50">
+      <section id="donate" className="py-12 sm:py-16 md:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
             <div>
-              <h2 className="text-4xl font-bold text-navy-dark mb-8">Make a Contribution</h2>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-navy-dark mb-6 sm:mb-8">Make a Contribution</h2>
               
               <Card>
                 <CardContent className="p-8">
@@ -317,16 +317,16 @@ export default function GivingPage() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-20 bg-navy-dark text-white">
+      <section className="py-12 sm:py-16 md:py-20 bg-navy-dark text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 px-4">
             Be Part of What <span className="text-gold">God Is Building</span>
           </h2>
-          <p className="text-xl text-gray-300 mb-8">
+          <p className="text-lg sm:text-xl text-gray-300 mb-6 sm:mb-8 px-4">
             This mission only works because people like you step up.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
             <Button className="bg-gold hover:bg-gold-light text-navy-dark font-semibold px-8 py-6 text-lg">
               <Heart className="mr-2 h-5 w-5" />
               GIVE / DONATE

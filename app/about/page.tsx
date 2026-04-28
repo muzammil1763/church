@@ -86,7 +86,7 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-[500px] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[500px] sm:h-[550px] md:h-[600px] flex items-center justify-center overflow-hidden">
         <Image
           src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=1920&h=500&fit=crop"
           alt="About Us"
@@ -97,25 +97,25 @@ export default function AboutPage() {
         <div className="absolute inset-0 bg-navy-dark/85" />
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-gold text-sm font-semibold uppercase mb-4">ABOUT US</p>
-          <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
+          <p className="text-gold text-xs sm:text-sm font-semibold uppercase mb-3 sm:mb-4">ABOUT US</p>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 px-4">
             We're Better
             <br />
             <span className="text-gold">Together.</span>
           </h1>
-          <p className="text-xl text-gray-200 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-200 max-w-3xl mx-auto px-4">
             A movement of pastors and churches choosing unity over isolation—so we can strengthen our community together.
           </p>
         </div>
       </section>
 
       {/* Our Story - How It Started */}
-      <section className="py-20 bg-white">
+      <section className="py-12 sm:py-16 md:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
             <div>
-              <p className="text-gold text-sm font-semibold uppercase mb-4">OUR STORY</p>
-              <h2 className="text-4xl font-bold text-navy-dark mb-6">How It Started</h2>
+              <p className="text-gold text-xs sm:text-sm font-semibold uppercase mb-3 sm:mb-4">OUR STORY</p>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-navy-dark mb-4 sm:mb-6">How It Started</h2>
               <div className="space-y-4 text-gray-700">
                 <p>
                   The Cobb Church Network was born out of a simple but powerful realization: there are strong churches all across our community—but they were largely operating separately instead of together.
@@ -151,9 +151,9 @@ export default function AboutPage() {
       </section>
 
       {/* Our Vision & Mission */}
-      <section className="py-20 bg-navy-dark text-white">
+      <section className="py-12 sm:py-16 md:py-20 bg-navy-dark text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 md:gap-16">
             {/* Vision */}
             <Card className="bg-navy-medium border-0">
               <CardContent className="p-10">
@@ -198,9 +198,9 @@ export default function AboutPage() {
       </section>
 
       {/* What Makes Us Different */}
-      <section className="py-20 bg-white">
+      <section className="py-12 sm:py-16 md:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
             <div className="relative h-96 rounded-lg overflow-hidden">
               <Image
                 src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=600&h=600&fit=crop"
@@ -211,8 +211,8 @@ export default function AboutPage() {
             </div>
             
             <div>
-              <p className="text-gold text-sm font-semibold uppercase mb-4">WHAT MAKES US DIFFERENT</p>
-              <h2 className="text-4xl font-bold text-navy-dark mb-6">
+              <p className="text-gold text-xs sm:text-sm font-semibold uppercase mb-3 sm:mb-4">WHAT MAKES US DIFFERENT</p>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-navy-dark mb-4 sm:mb-6">
                 This Isn't About Building Another Organization.
               </h2>
               <p className="text-lg text-gray-700 mb-6">
@@ -248,14 +248,14 @@ export default function AboutPage() {
       </section>
 
       {/* What This Looks Like In Action */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-12 sm:py-16 md:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-gold text-sm font-semibold uppercase text-center mb-4">WHAT THIS LOOKS LIKE IN ACTION</p>
-          <h2 className="text-4xl font-bold text-navy-dark text-center mb-16">
+          <p className="text-gold text-xs sm:text-sm font-semibold uppercase text-center mb-3 sm:mb-4">WHAT THIS LOOKS LIKE IN ACTION</p>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-navy-dark text-center mb-8 sm:mb-12 md:mb-16 px-4">
             Over time, this creates a rhythm—where unity becomes visible.
           </h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {whatThisLooksLike.map((item, idx) => {
               const Icon = item.icon
               return (
@@ -274,9 +274,9 @@ export default function AboutPage() {
       </section>
 
       {/* A Word to Pastors */}
-      <section className="py-20 bg-navy-dark text-white">
+      <section className="py-12 sm:py-16 md:py-20 bg-navy-dark text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
             <div className="relative h-96 rounded-lg overflow-hidden">
               <Image
                 src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=600&h=600&fit=crop"
@@ -287,8 +287,8 @@ export default function AboutPage() {
             </div>
             
             <div>
-              <p className="text-gold text-sm font-semibold uppercase mb-4">A WORD TO PASTORS</p>
-              <h2 className="text-4xl font-bold mb-6">To Every Pastor</h2>
+              <p className="text-gold text-xs sm:text-sm font-semibold uppercase mb-3 sm:mb-4">A WORD TO PASTORS</p>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6">To Every Pastor</h2>
               <p className="text-xl text-gray-200 mb-6">
                 We know what you carry.
                 <br />
@@ -323,16 +323,16 @@ export default function AboutPage() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-20 bg-white">
+      <section className="py-12 sm:py-16 md:py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold text-navy-dark mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-navy-dark mb-4 sm:mb-6 px-4">
             Be Part of What God Is Building In Our Community
           </h2>
-          <p className="text-xl text-gray-600 mb-8">
+          <p className="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8 px-4">
             Join a growing network of pastors and churches committed to unity, collaboration, and kingdom impact.
           </p>
           
-          <Button className="bg-gold hover:bg-gold-light text-navy-dark font-semibold px-12 py-6 text-lg">
+          <Button className="w-full sm:w-auto bg-gold hover:bg-gold-light text-navy-dark font-semibold px-8 sm:px-12 py-5 sm:py-6 text-base sm:text-lg">
             JOIN THE NETWORK
           </Button>
         </div>

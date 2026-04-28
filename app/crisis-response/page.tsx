@@ -65,7 +65,7 @@ export default function CrisisResponsePage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-[500px] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[500px] sm:h-[550px] md:h-[600px] flex items-center justify-center overflow-hidden">
         <Image
           src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=1920&h=500&fit=crop"
           alt="Crisis Response"
@@ -76,25 +76,25 @@ export default function CrisisResponsePage() {
         <div className="absolute inset-0 bg-navy-dark/80" />
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 px-4">
             CRISIS RESPONSE
             <br />
             <span className="text-gold">NETWORK</span>
           </h1>
-          <p className="text-xl md:text-2xl text-white mb-4 max-w-2xl mx-auto">
+          <p className="text-lg sm:text-xl md:text-2xl text-white mb-3 sm:mb-4 max-w-2xl mx-auto px-4">
             When our community faces urgent needs, we respond together.
           </p>
-          <p className="text-gold text-lg font-semibold mb-8">
+          <p className="text-gold text-base sm:text-lg font-semibold mb-6 sm:mb-8">
             ONE CHURCH. ONE RESPONSE.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button className="bg-gold hover:bg-gold-light text-navy-dark font-semibold px-8 py-6 text-lg">
-              <AlertCircle className="mr-2 h-5 w-5" />
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
+            <Button className="w-full sm:w-auto bg-gold hover:bg-gold-light text-navy-dark font-semibold px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg">
+              <AlertCircle className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
               REPORT A NEED
             </Button>
-            <Button className="bg-transparent border-2 border-white hover:bg-white/10 text-white font-semibold px-8 py-6 text-lg">
-              <Heart className="mr-2 h-5 w-5" />
+            <Button className="w-full sm:w-auto bg-transparent border-2 border-white hover:bg-white/10 text-white font-semibold px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg">
+              <Heart className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
               RESPOND / VOLUNTEER
             </Button>
           </div>
@@ -102,19 +102,19 @@ export default function CrisisResponsePage() {
       </section>
 
       {/* What is Crisis Response Network */}
-      <section className="py-20 bg-white">
+      <section className="py-12 sm:py-16 md:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
             <div>
-              <h2 className="text-4xl font-bold text-navy-dark mb-6">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-navy-dark mb-4 sm:mb-6">
                 WHAT IS THE
                 <br />
                 <span className="text-gold">CRISIS RESPONSE NETWORK?</span>
               </h2>
-              <p className="text-lg text-gray-700 mb-4">
+              <p className="text-base sm:text-lg text-gray-700 mb-3 sm:mb-4">
                 This is a coordinated effort between churches to respond quickly and effectively to urgent needs in our community.
               </p>
-              <p className="text-lg text-gray-700 mb-6">
+              <p className="text-base sm:text-lg text-gray-700 mb-4 sm:mb-6">
                 Instead of responding separately, we respond together—with unity, speed, and impact.
               </p>
             </div>
@@ -150,23 +150,23 @@ export default function CrisisResponsePage() {
       </section>
 
       {/* Active Needs Right Now */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-12 sm:py-16 md:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center mb-12">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8 sm:mb-12">
             <div>
-              <h2 className="text-4xl font-bold text-navy-dark mb-2">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-navy-dark mb-2">
                 ACTIVE NEEDS RIGHT NOW
-                <Badge className="ml-4 bg-red-600 text-white px-3 py-1 text-sm">LIVE</Badge>
+                <Badge className="ml-3 sm:ml-4 bg-red-600 text-white px-2 sm:px-3 py-1 text-xs sm:text-sm">LIVE</Badge>
               </h2>
             </div>
             <Link href="/crisis-response/all">
-              <Button variant="outline" className="border-navy-dark text-navy-dark hover:bg-navy-dark hover:text-white">
+              <Button variant="outline" className="w-full sm:w-auto border-navy-dark text-navy-dark hover:bg-navy-dark hover:text-white text-sm sm:text-base">
                 VIEW ALL NEEDS →
               </Button>
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {activeNeeds.map((need) => (
               <Card key={need.id} className="overflow-hidden hover:shadow-xl transition-shadow">
                 <div className="relative h-48">
@@ -209,11 +209,11 @@ export default function CrisisResponsePage() {
       </section>
 
       {/* How We Respond Together */}
-      <section className="py-20 bg-navy-dark text-white">
+      <section className="py-12 sm:py-16 md:py-20 bg-navy-dark text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-center mb-16">HOW WE RESPOND TOGETHER</h2>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-12 md:mb-16">HOW WE RESPOND TOGETHER</h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12">
             <div className="text-center">
               <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-gold flex items-center justify-center">
                 <AlertCircle className="h-10 w-10 text-navy-dark" />
@@ -248,16 +248,16 @@ export default function CrisisResponsePage() {
       </section>
 
       {/* Types of Crisis Response */}
-      <section className="py-20 bg-white">
+      <section className="py-12 sm:py-16 md:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-navy-dark text-center mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-navy-dark text-center mb-3 sm:mb-4">
             TYPES OF CRISIS RESPONSE
           </h2>
-          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base text-center text-gray-600 mb-8 sm:mb-12 max-w-2xl mx-auto px-4">
             We provide comprehensive support across multiple areas of need
           </p>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
             {responseTypes.map((type, idx) => {
               const Icon = type.icon
               return (
@@ -274,12 +274,12 @@ export default function CrisisResponsePage() {
       </section>
 
       {/* Report Form Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-12 sm:py-16 md:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
             {/* Form */}
             <div>
-              <h2 className="text-4xl font-bold text-navy-dark mb-6">REPORT AN URGENT NEED</h2>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-navy-dark mb-4 sm:mb-6">REPORT AN URGENT NEED</h2>
               
               <Card>
                 <CardContent className="p-8">
@@ -348,14 +348,14 @@ export default function CrisisResponsePage() {
             </div>
 
             {/* Ready to Help */}
-            <div className="space-y-8">
+            <div className="space-y-6 sm:space-y-8">
               <div>
-                <h2 className="text-4xl font-bold text-navy-dark mb-6">READY TO HELP?</h2>
-                <p className="text-lg text-gray-700 mb-6">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-navy-dark mb-4 sm:mb-6">READY TO HELP?</h2>
+                <p className="text-base sm:text-lg text-gray-700 mb-4 sm:mb-6">
                   If your church or team is able to respond, we want to connect you with real needs.
                 </p>
 
-                <div className="space-y-4">
+                <div className="space-y-3 sm:space-y-4">
                   <Button className="w-full bg-gold hover:bg-gold-light text-navy-dark font-semibold py-6 text-lg justify-start">
                     <HandHeart className="mr-3 h-6 w-6" />
                     VOLUNTEER TO RESPOND
@@ -397,16 +397,16 @@ export default function CrisisResponsePage() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-20 bg-navy-dark text-white">
+      <section className="py-12 sm:py-16 md:py-20 bg-navy-dark text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 px-4">
             TOGETHER, WE <span className="text-gold">RESPOND STRONGER</span>
           </h2>
-          <p className="text-xl text-gray-300 mb-8">
+          <p className="text-lg sm:text-xl text-gray-300 mb-6 sm:mb-8 px-4">
             When we unite our churches, resources, and hearts, we can make a greater impact in times of crisis.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-8 sm:mb-12">
             <Button className="bg-gold hover:bg-gold-light text-navy-dark font-semibold px-8 py-6 text-lg">
               <Users className="mr-2 h-5 w-5" />
               JOIN THE NETWORK

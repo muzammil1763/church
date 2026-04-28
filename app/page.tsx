@@ -52,7 +52,7 @@ export default async function HomePage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-[600px] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[500px] md:h-[600px] flex items-center justify-center overflow-hidden">
         <Image
           src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=1920&h=600&fit=crop"
           alt="Community"
@@ -62,43 +62,43 @@ export default async function HomePage() {
         />
         <div className="absolute inset-0 bg-navy-dark/80" />
         
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-gold text-sm font-semibold uppercase mb-4 tracking-wide">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-12 md:py-0">
+          <p className="text-gold text-xs sm:text-sm font-semibold uppercase mb-3 md:mb-4 tracking-wide">
             CONNECTING CHURCHES. STRENGTHENING COMMUNITY.
           </p>
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-4 md:mb-6 leading-tight px-4">
             CONNECTING CHURCHES.
             <br />
             <span className="text-gold">STRENGTHENING COMMUNITY.</span>
           </h1>
-          <p className="text-xl md:text-2xl text-gray-200 mb-4 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200 mb-3 md:mb-4 max-w-3xl mx-auto px-4">
             What could God do in our community if we truly moved together?
           </p>
-          <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base md:text-lg text-gray-300 mb-4 md:mb-8 max-w-2xl mx-auto px-4">
             An initiative of Cobb Pastors Alliance
             <br />
             Powered By The Shepherds Table
           </p>
-          <p className="text-base text-gray-400 mb-10 max-w-2xl mx-auto">
+          <p className="text-xs sm:text-sm md:text-base text-gray-400 mb-6 md:mb-10 max-w-2xl mx-auto px-4">
             A place where pastors and churches unite to share resources, serve together, and strengthen our community.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/join">
-              <Button className="bg-gold hover:bg-gold-light text-navy-dark font-semibold px-10 py-6 text-lg">
-                <Users className="mr-2 h-5 w-5" />
+          <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center px-4">
+            <Link href="/join" className="w-full sm:w-auto">
+              <Button className="w-full sm:w-auto bg-gold hover:bg-gold-light text-navy-dark font-semibold px-6 sm:px-8 md:px-10 py-4 md:py-6 text-sm md:text-base lg:text-lg">
+                <Users className="mr-2 h-4 md:h-5 w-4 md:w-5" />
                 JOIN THE NETWORK
               </Button>
             </Link>
-            <Link href="/resources">
-              <Button className="bg-transparent border-2 border-white hover:bg-white/10 text-white font-semibold px-10 py-6 text-lg">
-                <Package className="mr-2 h-5 w-5" />
+            <Link href="/resources" className="w-full sm:w-auto">
+              <Button className="w-full sm:w-auto bg-transparent border-2 border-white hover:bg-white/10 text-white font-semibold px-6 sm:px-8 md:px-10 py-4 md:py-6 text-sm md:text-base lg:text-lg">
+                <Package className="mr-2 h-4 md:h-5 w-4 md:w-5" />
                 EXPLORE RESOURCES
               </Button>
             </Link>
-            <Link href="/pastor-stories">
-              <Button className="bg-transparent border-2 border-white hover:bg-white/10 text-white font-semibold px-10 py-6 text-lg">
-                <Play className="mr-2 h-5 w-5" />
+            <Link href="/pastor-stories" className="w-full sm:w-auto">
+              <Button className="w-full sm:w-auto bg-transparent border-2 border-white hover:bg-white/10 text-white font-semibold px-6 sm:px-8 md:px-10 py-4 md:py-6 text-sm md:text-base lg:text-lg">
+                <Play className="mr-2 h-4 md:h-5 w-4 md:w-5" />
                 HEAR FROM PASTORS
               </Button>
             </Link>
@@ -107,15 +107,15 @@ export default async function HomePage() {
       </section>
 
       {/* We're Better Together Section */}
-      <section className="py-20 bg-white">
+      <section className="py-12 md:py-16 lg:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold mb-6">
+          <div className="text-center mb-8 md:mb-12 lg:mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6">
               We're <span className="text-gold italic">Better Together</span>
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 lg:gap-12">
             {coreValues.map((value, idx) => {
               const Icon = value.icon
               return (
@@ -133,10 +133,10 @@ export default async function HomePage() {
       </section>
 
       {/* Who We Are Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-12 md:py-16 lg:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="relative h-96 rounded-lg overflow-hidden">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-10 lg:gap-12 items-center">
+            <div className="relative h-64 sm:h-80 md:h-96 rounded-lg overflow-hidden order-2 lg:order-1">
               <Image
                 src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=600&h=600&fit=crop"
                 alt="Community"
@@ -150,21 +150,21 @@ export default async function HomePage() {
               </div>
             </div>
 
-            <div>
-              <p className="text-gold text-sm font-semibold uppercase mb-4">WHO WE ARE</p>
-              <h2 className="text-4xl font-bold text-navy-dark mb-6">
+            <div className="order-1 lg:order-2">
+              <p className="text-gold text-xs sm:text-sm font-semibold uppercase mb-3 md:mb-4">WHO WE ARE</p>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-navy-dark mb-4 md:mb-6">
                 UNITING CHURCHES.
                 <br />
                 TRANSFORMING COMMUNITIES.
               </h2>
-              <p className="text-lg text-gray-700 mb-6">
+              <p className="text-base md:text-lg text-gray-700 mb-4 md:mb-6">
                 The Cobb Church Network is a movement of pastors and churches committed to unity, collaboration, and serving community impact.
               </p>
-              <p className="text-lg text-gray-700 mb-8">
+              <p className="text-base md:text-lg text-gray-700 mb-6 md:mb-8">
                 When churches move together, we can reach further, serve better, and change more lives than we ever could alone.
               </p>
               <Link href="/about">
-                <Button className="bg-navy-dark hover:bg-navy-medium text-white font-semibold px-8 py-4 text-lg">
+                <Button className="w-full sm:w-auto bg-navy-dark hover:bg-navy-medium text-white font-semibold px-6 md:px-8 py-3 md:py-4 text-base md:text-lg">
                   LEARN MORE ABOUT US
                 </Button>
               </Link>
@@ -174,11 +174,11 @@ export default async function HomePage() {
       </section>
 
       {/* What We Do Section */}
-      <section className="py-20 bg-white">
+      <section className="py-12 md:py-16 lg:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-navy-dark text-center mb-16">WHAT WE DO</h2>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-navy-dark text-center mb-8 md:mb-12 lg:mb-16">WHAT WE DO</h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {[
               {
                 icon: Users,
@@ -237,16 +237,16 @@ export default async function HomePage() {
       </section>
 
       {/* Hear From Pastors Section */}
-      <section className="py-20 bg-navy-dark text-white">
+      <section className="py-12 md:py-16 lg:py-20 bg-navy-dark text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">HEAR FROM PASTORS</h2>
-            <p className="text-xl text-gray-300">
+          <div className="text-center mb-8 md:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 md:mb-4">HEAR FROM PASTORS</h2>
+            <p className="text-base sm:text-lg md:text-xl text-gray-300 px-4">
               Real stories from pastors who are experiencing the power of unity and collaboration.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
             {pastorStories.map((pastor) => (
               <Link key={pastor.id} href={`/pastor-stories/${pastor.slug}`}>
                 <div className="relative group cursor-pointer">
@@ -273,9 +273,9 @@ export default async function HomePage() {
             ))}
           </div>
 
-          <div className="text-center mt-12">
+          <div className="text-center mt-8 md:mt-12 px-4">
             <Link href="/pastor-stories">
-              <Button className="bg-gold hover:bg-gold-light text-navy-dark font-semibold px-8 py-4 text-lg">
+              <Button className="w-full sm:w-auto bg-gold hover:bg-gold-light text-navy-dark font-semibold px-6 md:px-8 py-3 md:py-4 text-base md:text-lg">
                 WATCH MORE STORIES
               </Button>
             </Link>
@@ -284,21 +284,21 @@ export default async function HomePage() {
       </section>
 
       {/* Impact Stats Section */}
-      <section className="py-20 bg-gold">
+      <section className="py-12 md:py-16 lg:py-20 bg-gold">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-navy-dark mb-4">
+          <div className="text-center mb-8 md:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-navy-dark mb-3 md:mb-4">
               TOGETHER, WE MAKE AN IMPACT
             </h2>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             {impactStats.map((stat, idx) => (
               <div key={idx} className="text-center">
-                <div className="text-5xl md:text-6xl font-bold text-navy-dark mb-2">
+                <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-navy-dark mb-2">
                   {stat.number}
                 </div>
-                <p className="text-navy-dark font-semibold text-sm uppercase">
+                <p className="text-navy-dark font-semibold text-xs sm:text-sm uppercase px-2">
                   {stat.label}
                 </p>
               </div>
@@ -308,26 +308,26 @@ export default async function HomePage() {
       </section>
 
       {/* Ready to Be Part CTA */}
-      <section className="py-20 bg-white">
+      <section className="py-12 md:py-16 lg:py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="w-20 h-20 mx-auto mb-8 rounded-full bg-gold flex items-center justify-center">
-            <Users className="h-10 w-10 text-navy-dark" />
+          <div className="w-16 h-16 md:w-20 md:h-20 mx-auto mb-6 md:mb-8 rounded-full bg-gold flex items-center justify-center">
+            <Users className="h-8 w-8 md:h-10 md:w-10 text-navy-dark" />
           </div>
-          <h2 className="text-4xl font-bold text-navy-dark mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-navy-dark mb-4 md:mb-6 px-4">
             READY TO BE PART OF SOMETHING BIGGER?
           </h2>
-          <p className="text-xl text-gray-600 mb-8">
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-6 md:mb-8 px-4">
             Join a growing network of pastors and churches committed to unity, collaboration, and kingdom impact.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/join">
-              <Button className="bg-gold hover:bg-gold-light text-navy-dark font-semibold px-10 py-6 text-lg">
+          <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center px-4">
+            <Link href="/join" className="w-full sm:w-auto">
+              <Button className="w-full sm:w-auto bg-gold hover:bg-gold-light text-navy-dark font-semibold px-6 md:px-10 py-4 md:py-6 text-base md:text-lg">
                 JOIN THE NETWORK
               </Button>
             </Link>
-            <Link href="/giving">
-              <Button className="bg-navy-dark hover:bg-navy-medium text-white font-semibold px-10 py-6 text-lg">
+            <Link href="/giving" className="w-full sm:w-auto">
+              <Button className="w-full sm:w-auto bg-navy-dark hover:bg-navy-medium text-white font-semibold px-6 md:px-10 py-4 md:py-6 text-base md:text-lg">
                 SUPPORT THE MISSION
               </Button>
             </Link>

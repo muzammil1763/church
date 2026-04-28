@@ -53,7 +53,7 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-[400px] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[500px] sm:h-[550px] md:h-[600px] flex items-center justify-center overflow-hidden">
         <Image
           src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1920&h=400&fit=crop"
           alt="Contact"
@@ -64,23 +64,23 @@ export default function ContactPage() {
         <div className="absolute inset-0 bg-navy-dark/85" />
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-gold text-sm font-semibold uppercase mb-4">WE'RE HERE FOR YOU</p>
-          <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
+          <p className="text-gold text-xs sm:text-sm font-semibold uppercase mb-3 sm:mb-4">WE'RE HERE FOR YOU</p>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6">
             Let's Connect
           </h1>
-          <p className="text-xl md:text-2xl text-gold mb-4">
+          <p className="text-lg sm:text-xl md:text-2xl text-gold mb-3 sm:mb-4 px-4">
             We're here to build relationships, answer questions, and help you get connected.
           </p>
-          <p className="text-lg text-gray-200">
+          <p className="text-base sm:text-lg text-gray-200 px-4">
             You don't have to do this alone.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-            <Button className="bg-gold hover:bg-gold-light text-navy-dark font-semibold px-8 py-6 text-lg">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mt-6 sm:mt-8 px-4">
+            <Button className="w-full sm:w-auto bg-gold hover:bg-gold-light text-navy-dark font-semibold px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg">
               JOIN THE NETWORK
             </Button>
-            <Button className="bg-transparent border-2 border-white hover:bg-white/10 text-white font-semibold px-8 py-6 text-lg">
-              <Send className="mr-2 h-5 w-5" />
+            <Button className="w-full sm:w-auto bg-transparent border-2 border-white hover:bg-white/10 text-white font-semibold px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg">
+              <Send className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
               SEND A MESSAGE
             </Button>
           </div>
@@ -88,11 +88,11 @@ export default function ContactPage() {
       </section>
 
       {/* How Can We Help */}
-      <section className="py-20 bg-white">
+      <section className="py-12 sm:py-16 md:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-navy-dark text-center mb-16">How Can We Help?</h2>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-navy-dark text-center mb-8 sm:mb-12 md:mb-16">How Can We Help?</h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {contactOptions.map((option, idx) => {
               const Icon = option.icon
               return (
@@ -117,13 +117,13 @@ export default function ContactPage() {
       </section>
 
       {/* Send Us a Message & Contact Info */}
-      <section id="form" className="py-20 bg-gray-50">
+      <section id="form" className="py-12 sm:py-16 md:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
             {/* Form */}
             <div>
-              <h2 className="text-4xl font-bold text-navy-dark mb-4">Send Us a Message</h2>
-              <p className="text-gray-600 mb-8">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-navy-dark mb-3 sm:mb-4">Send Us a Message</h2>
+              <p className="text-sm sm:text-base text-gray-600 mb-6 sm:mb-8">
                 Fill out the form below and someone from our team will follow up with you shortly.
               </p>
               
@@ -194,9 +194,9 @@ export default function ContactPage() {
             </div>
 
             {/* Contact Info */}
-            <div className="space-y-8">
+            <div className="space-y-6 sm:space-y-8">
               <div>
-                <h2 className="text-4xl font-bold text-navy-dark mb-8">Prefer to Reach Out Directly?</h2>
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-navy-dark mb-6 sm:mb-8">Prefer to Reach Out Directly?</h2>
                 
                 <div className="space-y-6">
                   <Card>
@@ -265,7 +265,7 @@ export default function ContactPage() {
       </section>
 
       {/* This Is About Relationships */}
-      <section className="relative py-20 overflow-hidden">
+      <section className="relative py-12 sm:py-16 md:py-20 overflow-hidden">
         <Image
           src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1920&h=400&fit=crop"
           alt="Relationships"
@@ -275,10 +275,10 @@ export default function ContactPage() {
         <div className="absolute inset-0 bg-navy-dark/85" />
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="text-white">
-              <h2 className="text-4xl font-bold mb-6">This Is About Relationships</h2>
-              <p className="text-xl text-gray-200 mb-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
+            <div className="text-white text-center lg:text-left">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6">This Is About Relationships</h2>
+              <p className="text-lg sm:text-xl text-gray-200 mb-3 sm:mb-4">
                 We're not just building a platform—we're building real connections between pastors and churches across our community.
               </p>
             </div>
@@ -287,21 +287,21 @@ export default function ContactPage() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-20 bg-white">
+      <section className="py-12 sm:py-16 md:py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <Card className="bg-gray-50 border-2 border-gray-200">
-            <CardContent className="p-12 text-center">
-              <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-gold flex items-center justify-center">
-                <Users className="h-10 w-10 text-navy-dark" />
+            <CardContent className="p-6 sm:p-8 md:p-12 text-center">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-4 sm:mb-6 rounded-full bg-gold flex items-center justify-center">
+                <Users className="h-8 w-8 sm:h-10 sm:w-10 text-navy-dark" />
               </div>
-              <h2 className="text-4xl font-bold text-navy-dark mb-4">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-navy-dark mb-3 sm:mb-4">
                 Ready to Be Part of Something Bigger?
               </h2>
-              <p className="text-xl text-gray-600 mb-8">
+              <p className="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8">
                 Join a growing network of churches working together to strengthen our community.
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
                 <Link href="/join">
                   <Button className="bg-gold hover:bg-gold-light text-navy-dark font-semibold px-8 py-6 text-lg">
                     JOIN THE NETWORK

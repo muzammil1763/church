@@ -124,7 +124,7 @@ export default async function DirectoryPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative h-[400px] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[350px] md:h-[400px] flex items-center justify-center overflow-hidden">
         <Image
           src="https://images.unsplash.com/photo-1477281765962-ef34e8bb0967?w=1920&h=400&fit=crop"
           alt="Church Directory"
@@ -134,33 +134,33 @@ export default async function DirectoryPage() {
         />
         <div className="absolute inset-0 bg-navy-dark/80" />
         
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center w-full">
-          <h1 className="text-5xl md:text-6xl font-bold text-white mb-4">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center w-full py-12 md:py-0">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-3 md:mb-4 px-4">
             Church Directory
           </h1>
-          <p className="text-2xl text-gold font-semibold mb-6">
+          <p className="text-xl sm:text-2xl text-gold font-semibold mb-4 md:mb-6 px-4">
             We're Better Together.
           </p>
-          <p className="text-lg text-gray-200 max-w-3xl mx-auto mb-8">
+          <p className="text-base sm:text-lg text-gray-200 max-w-3xl mx-auto mb-6 md:mb-8 px-4">
             Connect with churches across Cobb County that are working, serving, and building stronger communities together.
           </p>
 
           {/* Search Bar */}
-          <div className="max-w-4xl mx-auto flex gap-4">
+          <div className="max-w-4xl mx-auto flex flex-col md:flex-row gap-3 md:gap-4 px-4">
             <div className="flex-1 relative">
-              <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+              <Search className="absolute left-3 md:left-4 top-1/2 transform -translate-y-1/2 h-4 md:h-5 w-4 md:w-5 text-gray-400" />
               <input
                 type="text"
                 placeholder="Search churches by name, location, or ministry..."
-                className="w-full pl-12 pr-4 py-4 rounded-lg text-gray-900 text-lg"
+                className="w-full pl-10 md:pl-12 pr-3 md:pr-4 py-3 md:py-4 rounded-lg text-gray-900 text-sm md:text-base lg:text-lg"
               />
             </div>
-            <Button className="bg-navy-dark hover:bg-navy-medium text-white px-6 py-4 text-lg">
-              <MapPin className="mr-2 h-5 w-5" />
+            <Button className="bg-navy-dark hover:bg-navy-medium text-white px-4 md:px-6 py-3 md:py-4 text-sm md:text-base lg:text-lg whitespace-nowrap">
+              <MapPin className="mr-2 h-4 md:h-5 w-4 md:w-5" />
               VIEW MAP
             </Button>
-            <Button className="bg-gold hover:bg-gold-light text-navy-dark px-6 py-4 text-lg">
-              <Filter className="mr-2 h-5 w-5" />
+            <Button className="bg-gold hover:bg-gold-light text-navy-dark px-4 md:px-6 py-3 md:py-4 text-sm md:text-base lg:text-lg whitespace-nowrap">
+              <Filter className="mr-2 h-4 md:h-5 w-4 md:w-5" />
               MORE FILTERS
             </Button>
           </div>
@@ -168,11 +168,11 @@ export default async function DirectoryPage() {
       </section>
 
       {/* Filters Bar */}
-      <section className="bg-gray-50 border-b border-gray-200 py-6">
+      <section className="bg-gray-50 border-b border-gray-200 py-4 md:py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between mb-4">
-            <div className="flex items-center gap-4">
-              <select className="px-4 py-2 border border-gray-300 rounded-md bg-white">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 md:gap-4">
+            <div className="flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-3 md:gap-4">
+              <select className="px-3 md:px-4 py-2 border border-gray-300 rounded-md bg-white text-sm md:text-base">
                 <option>📍 All Locations</option>
                 <option>Powder Springs</option>
                 <option>Austell</option>
@@ -180,21 +180,21 @@ export default async function DirectoryPage() {
                 <option>Kennesaw</option>
               </select>
               
-              <select className="px-4 py-2 border border-gray-300 rounded-md bg-white">
+              <select className="px-3 md:px-4 py-2 border border-gray-300 rounded-md bg-white text-sm md:text-base">
                 <option>⛪ All Church Types</option>
                 <option>Baptist</option>
                 <option>Non-denominational</option>
                 <option>Methodist</option>
               </select>
               
-              <select className="px-4 py-2 border border-gray-300 rounded-md bg-white">
+              <select className="px-3 md:px-4 py-2 border border-gray-300 rounded-md bg-white text-sm md:text-base">
                 <option>🙏 All Ministries</option>
                 <option>Youth Ministry</option>
                 <option>Worship</option>
                 <option>Outreach</option>
               </select>
               
-              <select className="px-4 py-2 border border-gray-300 rounded-md bg-white">
+              <select className="px-3 md:px-4 py-2 border border-gray-300 rounded-md bg-white text-sm md:text-base">
                 <option>Sort by: A-Z</option>
                 <option>Sort by: Location</option>
                 <option>Sort by: Size</option>
@@ -202,26 +202,26 @@ export default async function DirectoryPage() {
             </div>
           </div>
 
-          <p className="text-sm text-gray-600">
+          <p className="text-xs md:text-sm text-gray-600 mt-3 md:mt-4">
             Showing 1–{displayChurches.length} of {displayChurches.length} Churches
           </p>
         </div>
       </section>
 
       {/* Churches Grid */}
-      <section className="py-16 bg-white">
+      <section className="py-12 md:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-8 md:mb-12">
             {displayChurches.map((church) => (
               <Card key={church.id} className="overflow-hidden hover:shadow-xl transition-shadow">
                 <div className={`relative h-48 ${church.bgColor} flex items-center justify-center`}>
                   <div className="text-6xl">{church.logo}</div>
                 </div>
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-bold text-navy-dark mb-2">{church.name}</h3>
-                  <p className="text-sm text-gray-600 mb-1">Pastor {church.pastor}</p>
-                  <p className="text-sm text-gray-500 mb-4 flex items-center gap-1">
-                    <MapPin className="h-4 w-4" />
+                <CardContent className="p-4 md:p-6">
+                  <h3 className="text-lg md:text-xl font-bold text-navy-dark mb-2">{church.name}</h3>
+                  <p className="text-xs md:text-sm text-gray-600 mb-1">Pastor {church.pastor}</p>
+                  <p className="text-xs md:text-sm text-gray-500 mb-4 flex items-center gap-1">
+                    <MapPin className="h-3 md:h-4 w-3 md:w-4" />
                     {church.location}
                   </p>
                   
@@ -234,7 +234,7 @@ export default async function DirectoryPage() {
                   </div>
 
                   <Link href={`/directory/${church.slug}`} className="block">
-                    <Button className="w-full bg-navy-dark hover:bg-navy-medium text-white font-semibold">
+                    <Button className="w-full bg-navy-dark hover:bg-navy-medium text-white font-semibold text-sm md:text-base">
                       VIEW PROFILE
                     </Button>
                   </Link>
@@ -246,11 +246,11 @@ export default async function DirectoryPage() {
       </section>
 
       {/* Find Churches Near You - Map Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-12 md:py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
             <div className="lg:col-span-2">
-              <div className="bg-gray-200 rounded-lg h-96 flex items-center justify-center">
+              <div className="bg-gray-200 rounded-lg h-64 md:h-80 lg:h-96 flex items-center justify-center">
                 <div className="text-center">
                   <Map className="h-16 w-16 text-gray-400 mx-auto mb-4" />
                   <p className="text-gray-600">Interactive Map View</p>
@@ -262,21 +262,21 @@ export default async function DirectoryPage() {
             </div>
             
             <div>
-              <h3 className="text-2xl font-bold text-navy-dark mb-6">Browse by Ministry</h3>
+              <h3 className="text-xl md:text-2xl font-bold text-navy-dark mb-4 md:mb-6">Browse by Ministry</h3>
               <div className="space-y-3">
                 {ministryCategories.map((category, idx) => (
                   <button
                     key={idx}
-                    className="w-full flex items-center justify-between p-4 bg-white rounded-lg hover:shadow-md transition-shadow text-left"
+                    className="w-full flex items-center justify-between p-3 md:p-4 bg-white rounded-lg hover:shadow-md transition-shadow text-left"
                   >
-                    <div className="flex items-center gap-3">
-                      <span className="text-2xl">{category.icon}</span>
-                      <span className="font-medium text-navy-dark">{category.label}</span>
+                    <div className="flex items-center gap-2 md:gap-3">
+                      <span className="text-xl md:text-2xl">{category.icon}</span>
+                      <span className="font-medium text-navy-dark text-sm md:text-base">{category.label}</span>
                     </div>
-                    <Badge variant="secondary">{category.count}</Badge>
+                    <Badge variant="secondary" className="text-xs md:text-sm">{category.count}</Badge>
                   </button>
                 ))}
-                <Button className="w-full bg-gold hover:bg-gold-light text-navy-dark font-semibold mt-4">
+                <Button className="w-full bg-gold hover:bg-gold-light text-navy-dark font-semibold mt-4 text-sm md:text-base">
                   View All Ministries
                 </Button>
               </div>

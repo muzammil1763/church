@@ -21,7 +21,7 @@ export default async function EventsPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative h-[400px] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[350px] md:h-[400px] flex items-center justify-center overflow-hidden">
         <Image
           src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=1920&h=400&fit=crop"
           alt="Events"
@@ -31,23 +31,23 @@ export default async function EventsPage() {
         />
         <div className="absolute inset-0 bg-navy-dark/80" />
         
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl md:text-6xl font-bold text-white mb-4">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-12 md:py-0">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-3 md:mb-4 px-4">
             Events &
             <br />
             <span className="text-gold">Community Impact</span>
           </h1>
-          <p className="text-xl text-gray-200 max-w-3xl mx-auto mb-8">
+          <p className="text-base sm:text-lg md:text-xl text-gray-200 max-w-3xl mx-auto mb-6 md:mb-8 px-4">
             Where churches come together to serve, connect, and make a difference.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button className="bg-gold hover:bg-gold-light text-navy-dark px-8 py-6 text-lg font-semibold">
-              <Calendar className="mr-2 h-5 w-5" />
+          <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center px-4">
+            <Button className="w-full sm:w-auto bg-gold hover:bg-gold-light text-navy-dark px-6 md:px-8 py-4 md:py-6 text-base md:text-lg font-semibold">
+              <Calendar className="mr-2 h-4 md:h-5 w-4 md:w-5" />
               VIEW UPCOMING EVENTS
             </Button>
-            <Button className="bg-transparent border-2 border-white hover:bg-white/10 text-white px-8 py-6 text-lg font-semibold">
-              <Users className="mr-2 h-5 w-5" />
+            <Button className="w-full sm:w-auto bg-transparent border-2 border-white hover:bg-white/10 text-white px-6 md:px-8 py-4 md:py-6 text-base md:text-lg font-semibold">
+              <Users className="mr-2 h-4 md:h-5 w-4 md:w-5" />
               SUBMIT AN EVENT
             </Button>
           </div>
@@ -149,13 +149,13 @@ export default async function EventsPage() {
       </section>
 
       {/* Upcoming Events */}
-      <section className="py-16 bg-white">
+      <section className="py-12 md:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-navy-dark mb-12">UPCOMING EVENTS</h2>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-navy-dark mb-8 md:mb-12">UPCOMING EVENTS</h2>
           
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 md:gap-8">
             {/* Events List */}
-            <div className="lg:col-span-3 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+            <div className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8">
             {upcomingEvents.map((event) => (
               <Card key={event.id} className="overflow-hidden hover:shadow-xl transition-shadow">
                 <div className="relative h-40">
@@ -203,8 +203,8 @@ export default async function EventsPage() {
 
             {/* Calendar Sidebar */}
             <div className="lg:col-span-1">
-              <div className="bg-white border border-gray-200 rounded-lg p-6 sticky top-24">
-                <h3 className="text-xl font-bold text-navy-dark mb-6">EVENT CALENDAR</h3>
+              <div className="bg-white border border-gray-200 rounded-lg p-4 md:p-6 lg:sticky lg:top-24">
+                <h3 className="text-lg md:text-xl font-bold text-navy-dark mb-4 md:mb-6">EVENT CALENDAR</h3>
                 
                 {/* Calendar Header */}
                 <div className="flex items-center justify-between mb-4">
@@ -277,8 +277,8 @@ export default async function EventsPage() {
               </div>
 
               {/* Event Types */}
-              <div className="bg-white border border-gray-200 rounded-lg p-6 mt-6 sticky top-[600px]">
-                <h3 className="text-lg font-bold text-navy-dark mb-4">EVENT TYPES</h3>
+              <div className="bg-white border border-gray-200 rounded-lg p-4 md:p-6 mt-6 lg:sticky lg:top-[600px]">
+                <h3 className="text-base md:text-lg font-bold text-navy-dark mb-4">EVENT TYPES</h3>
                 <div className="space-y-3">
                   {[
                     { name: 'Outreach', count: 18 },
@@ -305,8 +305,8 @@ export default async function EventsPage() {
               </div>
 
               {/* Want to Host */}
-              <div className="bg-navy-dark text-white rounded-lg p-6 mt-6 sticky top-[1050px]">
-                <h3 className="text-lg font-bold mb-3">WANT TO HOST AN EVENT?</h3>
+              <div className="bg-navy-dark text-white rounded-lg p-4 md:p-6 mt-6 lg:sticky lg:top-[1050px]">
+                <h3 className="text-base md:text-lg font-bold mb-3">WANT TO HOST AN EVENT?</h3>
                 <p className="text-sm text-gray-300 mb-4">
                   If your church is planning something that can bring churches together, we want to help make it happen.
                 </p>
@@ -317,8 +317,8 @@ export default async function EventsPage() {
             </div>
           </div>
 
-          <div className="text-center mt-12">
-            <Button className="bg-navy-dark hover:bg-navy-medium text-white font-semibold px-8 py-4 text-lg">
+          <div className="text-center mt-8 md:mt-12">
+            <Button className="w-full sm:w-auto bg-navy-dark hover:bg-navy-medium text-white font-semibold px-6 md:px-8 py-3 md:py-4 text-base md:text-lg">
               VIEW ALL EVENTS
             </Button>
           </div>
