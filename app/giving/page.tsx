@@ -1,0 +1,342 @@
+import Link from 'next/link'
+import Image from 'next/image'
+import { Button } from '@/components/ui/button'
+import { Card, CardContent } from '@/components/ui/card'
+import { Input } from '@/components/ui/input'
+import { 
+  Heart, 
+  Users, 
+  Package, 
+  DollarSign,
+  HandHeart,
+  Building2,
+  GraduationCap,
+  Church,
+  CheckCircle2,
+  Shield
+} from 'lucide-react'
+
+export default function GivingPage() {
+  const impactStats = [
+    { number: '500+', label: 'Families Helped' },
+    { number: '250+', label: 'Youth Mentored' },
+    { number: '60+', label: 'Churches Empowered' },
+    { number: '25+', label: 'Community Initiatives' },
+  ]
+
+  const supportWays = [
+    {
+      icon: DollarSign,
+      title: 'Give Financially',
+      description: 'Your financial support helps sustain the platform, outreach efforts, and community impact.',
+      button: 'DONATE NOW',
+      link: '/giving#donate',
+    },
+    {
+      icon: Users,
+      title: 'Volunteer Your Time',
+      description: 'Use your time and gifts to support events, outreach, and initiatives across the network.',
+      button: 'BECOME A VOLUNTEER',
+      link: '/join',
+    },
+    {
+      icon: Package,
+      title: 'Share Resources',
+      description: 'Share equipment, space, or support to help another church or community initiative.',
+      button: 'OFFER A RESOURCE',
+      link: '/resources',
+    },
+    {
+      icon: HandHeart,
+      title: 'Partner With Us',
+      description: 'Organizations and leaders can partner to expand impact and reach.',
+      button: 'START A PARTNERSHIP',
+      link: '/contact',
+    },
+  ]
+
+  const supportAreas = [
+    'Platform development & maintenance',
+    'Community outreach initiatives',
+    'Event support and coordination',
+    'Resource distribution and aid',
+    'Leadership development and training',
+  ]
+
+  return (
+    <div className="min-h-screen">
+      {/* Hero Section */}
+      <section className="relative h-[500px] flex items-center justify-center overflow-hidden">
+        <Image
+          src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=1920&h=500&fit=crop"
+          alt="Support the Mission"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-navy-dark/85" />
+        
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-gold text-sm font-semibold uppercase mb-4">SUPPORT THE MISSION</p>
+          <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
+            Help Strengthen Churches, Serve Families, and Impact Our Community Together
+          </h1>
+          <p className="text-xl text-gray-200 mb-8 max-w-3xl mx-auto">
+            Every contribution helps move the mission forward.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button className="bg-gold hover:bg-gold-light text-navy-dark font-semibold px-8 py-6 text-lg">
+              <Heart className="mr-2 h-5 w-5" />
+              GIVE / DONATE
+            </Button>
+            <Button className="bg-transparent border-2 border-white hover:bg-white/10 text-white font-semibold px-8 py-6 text-lg">
+              <Users className="mr-2 h-5 w-5" />
+              GET INVOLVED
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Why This Matters */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-4xl font-bold text-navy-dark mb-6">Why This Matters</h2>
+              <p className="text-lg text-gray-700 mb-4">
+                The Cobb Church Network exists to connect churches, share resources, and respond to real needs in our community. Your support helps make that possible—turning unity into action.
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-3 gap-6">
+              <div className="text-center">
+                <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-navy-dark flex items-center justify-center">
+                  <Church className="h-10 w-10 text-gold" />
+                </div>
+                <h3 className="font-bold text-navy-dark mb-2">Strengthen Churches</h3>
+                <p className="text-sm text-gray-600">Equip and empower churches to work together for greater impact.</p>
+              </div>
+              
+              <div className="text-center">
+                <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-gold flex items-center justify-center">
+                  <Users className="h-10 w-10 text-navy-dark" />
+                </div>
+                <h3 className="font-bold text-navy-dark mb-2">Support Families</h3>
+                <p className="text-sm text-gray-600">Provide resources, help, and practical aid to families in need.</p>
+              </div>
+              
+              <div className="text-center">
+                <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-navy-dark flex items-center justify-center">
+                  <Heart className="h-10 w-10 text-gold" />
+                </div>
+                <h3 className="font-bold text-navy-dark mb-2">Impact Community</h3>
+                <p className="text-sm text-gray-600">Address real needs and create lasting change across Cobb County.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Ways You Can Support */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-4xl font-bold text-navy-dark text-center mb-16">Ways You Can Support</h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {supportWays.map((way, idx) => {
+              const Icon = way.icon
+              return (
+                <Card key={idx} className="overflow-hidden hover:shadow-xl transition-shadow">
+                  <div className="relative h-48">
+                    <Image
+                      src={`https://images.unsplash.com/photo-${idx === 0 ? '1579621970563-ebec7560ff3e' : idx === 1 ? '1559027615-cd4628902d4a' : idx === 2 ? '1488521787991-ed7bbaae773c' : '1521737711867-e3b97375f902'}?w=400&h=300&fit=crop`}
+                      alt={way.title}
+                      fill
+                      className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-navy-dark/60 flex items-center justify-center">
+                      <div className="w-16 h-16 rounded-full bg-gold flex items-center justify-center">
+                        <Icon className="h-8 w-8 text-navy-dark" />
+                      </div>
+                    </div>
+                  </div>
+                  <CardContent className="p-6">
+                    <h3 className="text-xl font-bold text-navy-dark mb-3">{way.title}</h3>
+                    <p className="text-gray-600 mb-6 text-sm">{way.description}</p>
+                    <Link href={way.link}>
+                      <Button className="w-full bg-navy-dark hover:bg-navy-medium text-white font-semibold">
+                        {way.button} →
+                      </Button>
+                    </Link>
+                  </CardContent>
+                </Card>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Impact Stats */}
+      <section className="py-20 bg-navy-dark text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold mb-4">
+              Your Support Creates <span className="text-gold">Real Impact</span>
+            </h2>
+          </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {impactStats.map((stat, idx) => (
+              <div key={idx} className="text-center">
+                <div className="text-5xl font-bold text-gold mb-2">{stat.number}</div>
+                <p className="text-gray-300">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-16 text-center">
+            <p className="text-2xl font-bold mb-2">When We Work Together,</p>
+            <p className="text-4xl font-bold text-gold italic">Lives Are Changed.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Where Your Support Goes */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="relative h-96 rounded-lg overflow-hidden">
+              <Image
+                src="https://images.unsplash.com/photo-1438032005730-c779502df39b?w=600&h=400&fit=crop"
+                alt="Church building"
+                fill
+                className="object-cover"
+              />
+            </div>
+            
+            <div>
+              <h2 className="text-4xl font-bold text-navy-dark mb-8">Where Your Support Goes</h2>
+              <div className="space-y-4">
+                {supportAreas.map((area, idx) => (
+                  <div key={idx} className="flex items-start gap-3">
+                    <CheckCircle2 className="h-6 w-6 text-gold flex-shrink-0 mt-1" />
+                    <p className="text-lg text-gray-700">{area}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Make a Contribution */}
+      <section id="donate" className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div>
+              <h2 className="text-4xl font-bold text-navy-dark mb-8">Make a Contribution</h2>
+              
+              <Card>
+                <CardContent className="p-8">
+                  <div className="flex gap-4 mb-6">
+                    <Button variant="outline" className="flex-1 border-2 border-navy-dark text-navy-dark font-semibold">
+                      ONE-TIME GIFT
+                    </Button>
+                    <Button variant="outline" className="flex-1 border-2 border-gray-300 text-gray-600 font-semibold">
+                      MONTHLY SUPPORT
+                    </Button>
+                  </div>
+
+                  <div className="grid grid-cols-4 gap-3 mb-6">
+                    {['$25', '$50', '$100', '$250'].map((amount) => (
+                      <Button
+                        key={amount}
+                        variant="outline"
+                        className="border-2 border-gray-300 hover:border-gold hover:bg-gold/10 font-semibold"
+                      >
+                        {amount}
+                      </Button>
+                    ))}
+                  </div>
+
+                  <div className="mb-6">
+                    <Input placeholder="$ Other" className="text-center text-lg" />
+                  </div>
+
+                  <Button className="w-full bg-gold hover:bg-gold-light text-navy-dark font-semibold py-6 text-lg mb-4">
+                    <Heart className="mr-2 h-5 w-5" />
+                    GIVE NOW
+                  </Button>
+
+                  <div className="flex items-center justify-center gap-2 text-sm text-gray-600">
+                    <Shield className="h-4 w-4" />
+                    <p>Secure and processed safely.</p>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="mt-6 bg-navy-dark text-white">
+                <CardContent className="p-6">
+                  <div className="flex items-start gap-4">
+                    <Heart className="h-8 w-8 text-gold flex-shrink-0" />
+                    <div>
+                      <h3 className="font-bold text-lg mb-2">Not Everyone Gives Money—And That's Okay</h3>
+                      <p className="text-gray-300 text-sm">
+                        You can still be part of the mission by serving, sharing, and connecting. Every act of kindness matters.
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+
+            <div className="space-y-6">
+              <div className="relative h-64 rounded-lg overflow-hidden">
+                <Image
+                  src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=600&h=400&fit=crop"
+                  alt="Volunteers"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+
+              <div className="space-y-4">
+                <Button className="w-full bg-navy-dark hover:bg-navy-medium text-white font-semibold py-6 text-lg justify-start">
+                  <Users className="mr-3 h-6 w-6" />
+                  VOLUNTEER
+                </Button>
+                <Button className="w-full bg-transparent border-2 border-navy-dark text-navy-dark hover:bg-navy-dark hover:text-white font-semibold py-6 text-lg justify-start">
+                  <Package className="mr-3 h-6 w-6" />
+                  JOIN THE NETWORK
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section className="py-20 bg-navy-dark text-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-4xl font-bold mb-6">
+            Be Part of What <span className="text-gold">God Is Building</span>
+          </h2>
+          <p className="text-xl text-gray-300 mb-8">
+            This mission only works because people like you step up.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button className="bg-gold hover:bg-gold-light text-navy-dark font-semibold px-8 py-6 text-lg">
+              <Heart className="mr-2 h-5 w-5" />
+              GIVE / DONATE
+            </Button>
+            <Button className="bg-transparent border-2 border-white hover:bg-white/10 text-white font-semibold px-8 py-6 text-lg">
+              CONTACT US
+            </Button>
+          </div>
+        </div>
+      </section>
+    </div>
+  )
+}

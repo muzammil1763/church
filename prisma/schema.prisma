@@ -1,0 +1,115 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String    @id @default(auto()) @map("_id") @db.ObjectId
+  name          String?
+  email         String    @unique
+  password      String
+  role          String    @default("admin")
+  image         String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model Church {
+  id            String    @id @default(auto()) @map("_id") @db.ObjectId
+  name          String
+  slug          String    @unique
+  description   String
+  pastor        String
+  address       String
+  city          String
+  state         String
+  zip           String
+  phone         String
+  email         String
+  website       String?
+  image         String?
+  denomination  String?
+  size          String?
+  founded       String?
+  services      String[]
+  ministries    String[]
+  published     Boolean   @default(true)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model Event {
+  id            String    @id @default(auto()) @map("_id") @db.ObjectId
+  title         String
+  slug          String    @unique
+  description   String
+  date          DateTime
+  time          String
+  location      String
+  address       String?
+  organizer     String
+  contactEmail  String?
+  contactPhone  String?
+  image         String?
+  category      String
+  capacity      Int?
+  registered    Int       @default(0)
+  published     Boolean   @default(true)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model Resource {
+  id            String    @id @default(auto()) @map("_id") @db.ObjectId
+  title         String
+  slug          String    @unique
+  description   String
+  category      String
+  type          String
+  provider      String
+  contactName   String?
+  contactEmail  String?
+  contactPhone  String?
+  availability  String
+  image         String?
+  tags          String[]
+  published     Boolean   @default(true)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model CrisisNeed {
+  id            String    @id @default(auto()) @map("_id") @db.ObjectId
+  title         String
+  description   String
+  urgency       String
+  category      String
+  location      String
+  contactName   String
+  contactEmail  String?
+  contactPhone  String
+  needBy        DateTime?
+  status        String    @default("active")
+  resolved      Boolean   @default(false)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model PastorStory {
+  id            String    @id @default(auto()) @map("_id") @db.ObjectId
+  pastorName    String
+  churchName    String
+  title         String
+  slug          String    @unique
+  story         String
+  image         String?
+  videoUrl      String?
+  featured      Boolean   @default(false)
+  published     Boolean   @default(true)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
