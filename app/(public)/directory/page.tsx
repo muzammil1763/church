@@ -1,26 +1,142 @@
+'use client'
+
+import { useState, useMemo } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Search, MapPin, Filter, Map, CheckCircle2 } from 'lucide-react'
-import { prisma } from '@/lib/prisma'
 
-export const revalidate = 60
+export default function DirectoryPage() {
+  // State for filters
+  const [searchQuery, setSearchQuery] = useState('')
+  const [locationFilter, setLocationFilter] = useState('all')
+  const [churchTypeFilter, setChurchTypeFilter] = useState('all')
+  const [ministryFilter, setMinistryFilter] = useState('all')
+  const [sortBy, setSortBy] = useState('name')
 
-export default async function DirectoryPage() {
-  const churches = await prisma.church.findMany({
-    where: { published: true },
-    orderBy: { name: 'asc' },
-  })
+  // Static church data (you can replace this with API call)
+  const churches = [
+    {
+      id: 1,
+      name: 'First Baptist Church of Powder Springs',
+      pastor: 'John Smith',
+      city: 'Powder Springs',
+      state: 'GA',
+      logo: '✝️',
+      bgColor: 'bg-navy-dark',
+      ministries: ['Worship', 'Outreach', 'Youth'],
+      type: 'Baptist',
+      slug: 'first-baptist-powder-springs',
+    },
+    {
+      id: 2,
+      name: 'Vision for Souls Church',
+      pastor: 'Ricky Mims',
+      city: 'Austell',
+      state: 'GA',
+      logo: 'V',
+      bgColor: 'bg-navy-dark',
+      ministries: ['Evangelism', 'Youth', 'Prayer'],
+      type: 'Non-denominational',
+      slug: 'vision-for-souls',
+    },
+    {
+      id: 3,
+      name: 'Count Me In Group',
+      pastor: 'Ricky Mims',
+      city: 'Marietta',
+      state: 'GA',
+      logo: 'CMIG',
+      bgColor: 'bg-navy-dark',
+      ministries: ['Leadership', 'Youth', 'Unity'],
+      type: 'Non-denominational',
+      slug: 'count-me-in-group',
+    },
+    {
+      id: 4,
+      name: 'New Hope Community Church',
+      pastor: 'Michael Thompson',
+      city: 'Kennesaw',
+      state: 'GA',
+      logo: '🌱',
+      bgColor: 'bg-green-700',
+      ministries: ['Worship', 'Families', 'Serve'],
+      type: 'Non-denominational',
+      slug: 'new-hope-community',
+    },
+    {
+      id: 5,
+      name: 'Bridge of Faith Church',
+      pastor: 'David Williams',
+      city: 'Smyrna',
+      state: 'GA',
+      logo: '❤️',
+      bgColor: 'bg-red-700',
+      ministries: ['Faith', 'Community', 'Outreach'],
+      type: 'Non-denominational',
+      slug: 'bridge-of-faith',
+    },
+    {
+      id: 6,
+      name: 'Living Word Church',
+      pastor: 'James Walker',
+      city: 'Acworth',
+      state: 'GA',
+      logo: '✝️',
+      bgColor: 'bg-navy-dark',
+      ministries: ['Teaching', 'Youth', 'Missions'],
+      type: 'Baptist',
+      slug: 'living-word',
+    },
+  ]
 
-  const churchesData = churches.map((church, idx) => ({
+  // Get unique locations and church types
+  const locations = Array.from(new Set(churches.map(c => c.city))).sort()
+  const churchTypes = Array.from(new Set(churches.map(c => c.type))).sort()
+  const allMinistries = Array.from(new Set(churches.flatMap(c => c.ministries))).sort()
+
+  // Filter and sort churches
+  const filteredChurches = useMemo(() => {
+    let filtered = churches.filter(church => {
+      // Search filter
+      const matchesSearch = searchQuery === '' || 
+        church.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        church.city.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        church.pastor.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        church.ministries.some(m => m.toLowerCase().includes(searchQuery.toLowerCase()))
+
+      // Location filter
+      const matchesLocation = locationFilter === 'all' || church.city === locationFilter
+
+      // Church type filter
+      const matchesType = churchTypeFilter === 'all' || church.type === churchTypeFilter
+
+      // Ministry filter
+      const matchesMinistry = ministryFilter === 'all' || 
+        church.ministries.some(m => m.toLowerCase() === ministryFilter.toLowerCase())
+
+      return matchesSearch && matchesLocation && matchesType && matchesMinistry
+    })
+
+    // Sort
+    if (sortBy === 'name') {
+      filtered.sort((a, b) => a.name.localeCompare(b.name))
+    } else if (sortBy === 'location') {
+      filtered.sort((a, b) => a.city.localeCompare(b.city))
+    }
+
+    return filtered
+  }, [churches, searchQuery, locationFilter, churchTypeFilter, ministryFilter, sortBy])
+
+  const churchesData = filteredChurches.map((church) => ({
     id: church.id,
     name: church.name,
     pastor: church.pastor,
     location: `${church.city}, ${church.state}`,
-    logo: ['✝️', 'V', 'CMIG', '🌱', '❤️', '✝️', '🙏', '⛰️', '✓'][idx % 9],
-    bgColor: ['bg-navy-dark', 'bg-navy-dark', 'bg-navy-dark', 'bg-green-700', 'bg-red-700', 'bg-navy-dark', 'bg-amber-600', 'bg-slate-700', 'bg-gold'][idx % 9],
+    logo: church.logo,
+    bgColor: church.bgColor,
     ministries: church.ministries.slice(0, 3),
     slug: church.slug,
   }))
@@ -109,7 +225,7 @@ export default async function DirectoryPage() {
     },
   ]
 
-  const displayChurches = churchesData.length > 0 ? churchesData : oldChurches
+  const displayChurches = churchesData
 
   const ministryCategories = [
     { icon: '🎵', label: 'Worship & Music', count: 18 },
@@ -153,15 +269,26 @@ export default async function DirectoryPage() {
                 type="text"
                 placeholder="Search churches by name, location, or ministry..."
                 className="w-full pl-10 md:pl-12 pr-3 md:pr-4 py-3 md:py-4 rounded-lg text-gray-900 text-sm md:text-base lg:text-lg"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
               />
             </div>
             <Button className="bg-navy-dark hover:bg-navy-medium text-white px-4 md:px-6 py-3 md:py-4 text-sm md:text-base lg:text-lg whitespace-nowrap">
               <MapPin className="mr-2 h-4 md:h-5 w-4 md:w-5" />
               VIEW MAP
             </Button>
-            <Button className="bg-gold hover:bg-gold-light text-navy-dark px-4 md:px-6 py-3 md:py-4 text-sm md:text-base lg:text-lg whitespace-nowrap">
+            <Button 
+              className="bg-gold hover:bg-gold-light text-navy-dark px-4 md:px-6 py-3 md:py-4 text-sm md:text-base lg:text-lg whitespace-nowrap"
+              onClick={() => {
+                setLocationFilter('all')
+                setChurchTypeFilter('all')
+                setMinistryFilter('all')
+                setSortBy('name')
+                setSearchQuery('')
+              }}
+            >
               <Filter className="mr-2 h-4 md:h-5 w-4 md:w-5" />
-              MORE FILTERS
+              RESET FILTERS
             </Button>
           </div>
         </div>
@@ -172,38 +299,52 @@ export default async function DirectoryPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 md:gap-4">
             <div className="flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-3 md:gap-4">
-              <select className="px-3 md:px-4 py-2 border border-gray-300 rounded-md bg-white text-sm md:text-base">
-                <option>📍 All Locations</option>
-                <option>Powder Springs</option>
-                <option>Austell</option>
-                <option>Marietta</option>
-                <option>Kennesaw</option>
+              <select 
+                className="px-3 md:px-4 py-2 border border-gray-300 rounded-md bg-white text-sm md:text-base"
+                value={locationFilter}
+                onChange={(e) => setLocationFilter(e.target.value)}
+              >
+                <option value="all">📍 All Locations</option>
+                {locations.map(location => (
+                  <option key={location} value={location}>{location}</option>
+                ))}
               </select>
               
-              <select className="px-3 md:px-4 py-2 border border-gray-300 rounded-md bg-white text-sm md:text-base">
-                <option>⛪ All Church Types</option>
-                <option>Baptist</option>
-                <option>Non-denominational</option>
-                <option>Methodist</option>
+              <select 
+                className="px-3 md:px-4 py-2 border border-gray-300 rounded-md bg-white text-sm md:text-base"
+                value={churchTypeFilter}
+                onChange={(e) => setChurchTypeFilter(e.target.value)}
+              >
+                <option value="all">⛪ All Church Types</option>
+                {churchTypes.map(type => (
+                  <option key={type} value={type}>{type}</option>
+                ))}
               </select>
               
-              <select className="px-3 md:px-4 py-2 border border-gray-300 rounded-md bg-white text-sm md:text-base">
-                <option>🙏 All Ministries</option>
-                <option>Youth Ministry</option>
-                <option>Worship</option>
-                <option>Outreach</option>
+              <select 
+                className="px-3 md:px-4 py-2 border border-gray-300 rounded-md bg-white text-sm md:text-base"
+                value={ministryFilter}
+                onChange={(e) => setMinistryFilter(e.target.value)}
+              >
+                <option value="all">🙏 All Ministries</option>
+                {allMinistries.map(ministry => (
+                  <option key={ministry} value={ministry}>{ministry}</option>
+                ))}
               </select>
               
-              <select className="px-3 md:px-4 py-2 border border-gray-300 rounded-md bg-white text-sm md:text-base">
-                <option>Sort by: A-Z</option>
-                <option>Sort by: Location</option>
-                <option>Sort by: Size</option>
+              <select 
+                className="px-3 md:px-4 py-2 border border-gray-300 rounded-md bg-white text-sm md:text-base"
+                value={sortBy}
+                onChange={(e) => setSortBy(e.target.value)}
+              >
+                <option value="name">Sort by: A-Z</option>
+                <option value="location">Sort by: Location</option>
               </select>
             </div>
           </div>
 
           <p className="text-xs md:text-sm text-gray-600 mt-3 md:mt-4">
-            Showing 1–{displayChurches.length} of {displayChurches.length} Churches
+            Showing 1–{displayChurches.length} of {churches.length} Churches
           </p>
         </div>
       </section>
